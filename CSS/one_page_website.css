@@ -1,6 +1,4 @@
-/*------------------------------------------
-    STYLES FOR LAYOUT AND DESIGN
-------------------------------------------*/
+/* General Reset and Fonts */
 body {
   font-family: Poppins, sans-serif;
   margin: 0;
@@ -13,6 +11,7 @@ h1, h2 {
   margin-bottom: 20px;
 }
 
+/* Navbar */
 nav {
   background-color: #333;
   padding: 15px;
@@ -35,7 +34,8 @@ nav a:hover {
   color: #f39c12;
 }
 
-section {
+/* Sections */
+.section {
   padding: 50px 20px;
   text-align: center;
   max-width: 100%;
@@ -46,12 +46,10 @@ section {
   background-color: #222;
   color: #fff;
   padding: 100px 20px;
-  text-align: center;
 }
 
 #home h1 {
   font-size: 3rem;
-  margin-bottom: 20px;
 }
 
 #home p {
@@ -60,21 +58,80 @@ section {
   margin: 0 auto;
 }
 
-img {
-  width: 100px;
-  height: auto;
+/* Gallery Thumbnails */
+#gallery img {
+  width: 300px;
   margin: 10px;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
-iframe {
-  max-width: 560px;
-  height: 315px;
-  max-width: 100%;
-  border: none;
+/* Lightbox Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
+.modal-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.lightbox-slide {
+  display: none;
+  max-width: 100%;
+  max-height: 90vh;
+  border-radius: 8px;
+}
+
+/* Lightbox Navigation */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 16px;
+  color: white;
+  font-size: 35px;
+  user-select: none;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+.prev:hover, .next:hover, .close:hover {
+  color: #f39c12;
+}
+
+/* Contact Form */
 form {
   max-width: 500px;
   margin: 0 auto;
@@ -106,153 +163,39 @@ input[type="submit"]:hover {
   background-color: #f39c12;
 }
 
+/* Footer */
 footer {
   background-color: #333;
   color: #fff;
   text-align: center;
   padding: 20px;
   font-size: 14px;
-  position: relative;
-  bottom: 0;
-  width: 100%;
 }
 
-/*-----------------------------------------------------
-    MEDIA QUERIES FOR RESPONSIVENESS
------------------------------------------------------*/
-@media (max-width: 768px) {
-  nav {
-    padding: 10px;
-  }
-  nav a {
-    margin: 0 10px;
-  }
-  #home h1 {
-    font-size: 2.5rem;
-  }
-  #home p {
-    font-size: 1.1rem;
-  }
-  form {
-    padding: 15px;
-  }
-  input, textarea {
-    padding: 10px;
-  }
-}
-
-/*----------------------------------------------------
-    FIX FOR CENTERING IMAGES AND VIDEO
-----------------------------------------------------*/
-#gallery, #video {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/*----------------------------------------------------
-    Arrange the images side by side but center the
-----------------------------------------------------*/
-#gallery img {
-  width: 300px;
-  margin: 10px;
-  border-radius: 10px;
-}
-
-/*--------------------------------------------------- 
-    MAKE ALL IMAGES IN GALLERY STAY IN A ROW
----------------------------------------------------*/
-#gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 50px 20px;
-}
-
-/*---------------------------------------------------
-    VIDEO IFRAME CENTERED
----------------------------------------------------*/
+/* Video */
 #video iframe {
   width: 450px;
   height: 400px;
+  max-width: 100%;
+  border: none;
   margin: 20px 0;
 }
 
-#contact h2,
-#contact p {
-  text-align: center;
-}
+/* Responsive */
+@media (max-width: 768px) {
+  #home h1 {
+    font-size: 2.5rem;
+  }
 
-/*------------------------------------
-    LIGHTBOX MODAL STYLES
-------------------------------------*/
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  padding-top: 60px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.9);
-}
+  #home p {
+    font-size: 1.1rem;
+  }
 
-.modal-content {
-  position: relative;
-  max-width: 90vw;
-  max-height: 90vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  margin: 0 auto;
-}
+  form {
+    padding: 15px;
+  }
 
-.lightbox-slide {
-  display: none;
-  max-width: 100%;
-  max-height: 90vh;
-  width: auto;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.8);
-  object-fit: contain;
-}
-
-.close {
-  position: absolute;
-  top: 20px;
-  right: 45px;
-  color: #fff;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-  user-select: none;
-}
-
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -25px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 35px;
-  user-select: none;
-  transition: 0.3s;
-  border-radius: 0 3px 3px 0;
-}
-
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-.prev:hover, .next:hover, .close:hover {
-  color: #f39c12;
+  input, textarea {
+    padding: 10px;
+  }
 }

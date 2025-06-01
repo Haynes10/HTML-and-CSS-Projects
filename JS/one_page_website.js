@@ -1,26 +1,29 @@
-// JavaScript for Lightbox Gallery
-
 let slideIndex = 1;
 
+// Open the modal
 function openLightbox() {
-  document.getElementById('lightboxModal').style.display = 'block';
-  showSlides(slideIndex);
+  document.getElementById("lightboxModal").style.display = "block";
+  showSlide(slideIndex);
 }
 
+// Close the modal
 function closeLightbox() {
-  document.getElementById('lightboxModal').style.display = 'none';
+  document.getElementById("lightboxModal").style.display = "none";
 }
 
+// Next/previous controls
 function changeSlide(n) {
-  showSlides(slideIndex += n);
+  showSlide(slideIndex += n);
 }
 
+// Thumbnail image controls
 function currentSlide(n) {
-  showSlides(slideIndex = n);
+  showSlide(slideIndex = n);
 }
 
-function showSlides(n) {
-  const slides = document.getElementsByClassName('lightbox-slide');
+// Display the right slide
+function showSlide(n) {
+  let slides = document.getElementsByClassName("lightbox-slide");
 
   if (n > slides.length) {
     slideIndex = 1;
@@ -32,9 +35,9 @@ function showSlides(n) {
 
   // Hide all slides
   for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = 'none';
+    slides[i].style.display = "none";
   }
 
-  // Show the current slide
-  slides[slideIndex - 1].style.display = 'block';
+  // Show current slide
+  slides[slideIndex - 1].style.display = "block";
 }
